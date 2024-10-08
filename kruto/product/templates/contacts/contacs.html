@@ -1,0 +1,32 @@
+{% extends 'base2.html' %}
+
+{% block title %}
+Контакты
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1 class="fade-in">НАШ АДРЕС:</h1>
+    
+    <div class="content-wrapper fade-in">
+        <div class="address">
+            <p>РК г. Алматы, Казыбаева 286</p>
+            <p>Телефоны:</p>
+            <p><a href="tel:+77010665544">+7 (701) 066-55-44</a></p>
+            <p><a href="tel:+77019692777">+7 (701) 969-27-77</a></p>
+            <p>Email: <a href="mailto:viktorkim2006@gmail.com">gabbasovalibek4@gmail.com</a></p>
+        </div>        
+        
+        <div class="map">
+        <iframe 
+            src="https://yandex.ru/map-widget/v1/?ll=76.916732%2C43.311399&z=16&pt=76.916732,43.311399,pm2rdm" 
+            width="600" 
+            height="400" 
+            frameborder="1">
+        </iframe>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+

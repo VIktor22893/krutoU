@@ -1,0 +1,124 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="{% static './style.css' %}">
+    <link rel="shortcut icon" href="{% static './images/LogoWT.png' %}" type="image/png">
+    <meta name="description" content="Предлагаем металлопрокат в широком ассортименте в Алматы. Качественные металлические изделия для строительства и производства. Надежность, высокое качество и доступные цены.">
+    <title>{% block title %}Металлопрокат в широком ассортименте в Алматы - Надежность и Качество{% endblock %}</title>
+</head>
+
+<body>  
+    <div class="wrapper">
+        <header class="header pc">
+            <div class="container">
+                <div class="header__inner">
+                    <div class="header__logo">
+                        <a href="{% url 'home' %}">
+                            <img src="/static/images/LogoT.png" alt="Saba Construction Logo" class="logo-img">
+                        </a>
+                    </div>
+                    <div class="header__menu">
+                        <a href="{% url 'home' %}" class="nav__link">Главная</a>
+                        <a href="{% url 'materials_list' %}" class="nav__link">Прайс лист</a>
+                        <a href="{% url 'about' %}" class="nav__link">О компании</a>
+                        <a href="{% url 'contacts' %}" class="nav__link">Контакты</a>
+                    </div>
+                </div>
+            </div>
+        </header>      
+        <header class="header mobile active">
+            <div class="container">
+                <div class="header__inner">
+                    <div class="header__logo">
+                        <a href="{% url 'home' %}">
+                            <img src="/static/images/LogoT.png" alt="Saba Construction Logo" class="logo-img">
+                        </a>
+                    </div>
+                    <div class="header__btn">
+                        <a href="#" onclick="burgerMenu()">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Hamburger_icon.svg/1920px-Hamburger_icon.svg.png"
+                                alt="">
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="header__menu">
+                <a href="{% url 'home' %}" class="nav__link">Главная</a>
+                <a href="{% url 'materials_list' %}" class="nav__link">Прайс лист</a>
+                <a href="{% url 'about' %}" class="nav__link">О компании</a>
+                <a href="{% url 'contacts' %}" class="nav__link">Контакты</a>
+            </div>
+        </header>
+
+        <div class="intro">
+            <div class="container" style="margin-top: 0;">
+                <div class="content">
+                    <div class="intro__title" style="text-transform: uppercase;">
+                        металлопрокат в широком ассортименте в Алматы
+                    </div>
+                    <div class="intro__text">
+                        <span class="change" data-words="  Предлагаем широкий ассортимент металлопроката в Алматы. Качественные изделия для строительства и производства по выгодным ценам с индивидуальным подходом к каждому клиенту.">
+
+                        </span>
+                    </div>
+                    <div class="intro__btn">
+                        <a href="{% url 'materials_list' %}" class="btn btn-transparent">
+                            Посмотреть Прайс
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="page">
+            {% block content %}
+            {% endblock %}
+        </div>
+
+        <footer class="footer">
+            <div class="container">
+                <div class="footer__inner">
+                    <div class="footer__text">
+                        <p>&copy; 2024 Saba Construction. All rights reserved.</p>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+    <!-- Кнопка WhatsApp -->
+    <a href="https://wa.me/77010665544" class="whatsapp-button" target="_blank">
+        <img src="{% static 'images/whatsapp-icon.png' %}" alt="WhatsApp">
+    </a>
+
+    <script>
+        window.addEventListener('scroll', function () {
+            const header = document.querySelector('.header.pc');
+            if (window.scrollY > 50) {
+                header.classList.add('active');
+            } else {
+                header.classList.remove('active');
+            }
+        });
+    </script>    
+    <script src="{% static 'js/jquery.min.js' %}"></script>
+    <script src="{% static 'js/jquery.maskedinput.js' %}"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="{% static 'js/script.js' %}"></script>
+    <script>
+        AOS.init();
+    </script>
+
+</body>
+
+</html>

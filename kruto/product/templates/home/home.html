@@ -1,0 +1,106 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+Главная
+{% endblock %}
+
+{% block content %}
+
+<div id="preloader">
+    <div class="preloader-content">
+        <p class="preloader-text">Добро пожаловать</p>
+    </div>
+</div>  
+
+<section class="download-price-list">
+    <div class="container">
+        <div class="section__title">Скачать прайс-лист</div>
+        <div class="price-list-buttons">
+            {% if price_lists %}
+                {% for price_list in price_lists %}
+                    <a href="{{ price_list.file.url }}" class="button button-open" target="_blank">
+                        Открыть {{ price_list.name }}
+                    </a>
+                    <a href="{{ price_list.file.url }}" class="button button-download" download>
+                        Скачать {{ price_list.name }}
+                    </a>
+                {% endfor %}
+            {% else %}
+                <p>Файлы для скачивания отсутствуют.</p>
+            {% endif %}
+        </div>
+    </div>
+</section>
+
+<section class="advantages" data-aos="fade-left" data-aos-duration="600">
+    <div class="container">
+        <div class="section__title">Наши преимущества</div>
+        <div class="advantages__cards">
+            <div class="advantages__card">
+                <div class="advantages__card-image">
+                    <img style="width: 60px; height: 60px;" src="{% static './images/shelves.png' %}" alt="">
+                </div>
+                <div class="advantages__card-title">
+                    Широкий ассортимент
+                </div>
+                <div class="advantages__card-desc">
+                    В наличии все необходимые стройматериалы для любого этапа строительства и ремонта.
+                </div>
+            </div>
+            <div class="advantages__card">
+                <div class="advantages__card-image">
+                    <img style="width: 60px; height: 60px;" src="{% static './images/quality.png' %}" alt="">
+                </div>
+                <div class="advantages__card-title">
+                    Высокое качество
+                </div>
+                <div class="advantages__card-desc">
+                    Предлагаем только сертифицированные материалы от проверенных производителей.
+                </div>
+            </div>
+            <div class="advantages__card">
+                <div class="advantages__card-image">
+                    <img style="width: 60px; height: 60px;" src="{% static './images/shipped.png' %}" alt="">
+                </div>
+                <div class="advantages__card-title">
+                    Доставка 
+                </div>
+                <div class="advantages__card-desc">
+                    Быстрая и надежная доставка на объект в удобное время.
+                </div>
+            </div>
+            <div class="advantages__card">
+                <div class="advantages__card-image">
+                    <img style="width: 60px; height: 60px;" src="{% static './images/best-price.png' %}" alt="">
+                </div>
+                <div class="advantages__card-title">
+                    Конкурентные цены
+                </div>
+                <div class="advantages__card-desc">
+                    Лучшие предложения на рынке благодаря прямым поставкам от производителей.
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        // Проверяем, был ли preloader уже показан
+        if (!sessionStorage.getItem('preloaderShown')) {
+            // Если preloader не был показан, показываем его и сохраняем флаг
+            document.body.classList.remove('loaded'); // Убираем класс loaded, чтобы preloader отобразился
+            setTimeout(function () {
+                document.body.classList.add('loaded');
+                sessionStorage.setItem('preloaderShown', 'true'); // Сохраняем флаг, что preloader был показан
+            }, 2500); // Задержка в 2.5 секунды
+        } else {
+            // Если preloader уже был показан, сразу скрываем его
+            document.body.classList.add('loaded');
+        }
+    });
+</script>
+
+
+{% endblock %}
